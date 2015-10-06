@@ -1,6 +1,3 @@
-/**
- * Created by Kos on 05.10.2015.
- */
 /*12. Мобильная связь. Определить иерархию тарифов мобильной компании.
 Создать список тарифов компании. Подсчитать общую численность клиентов.
 Провести сортировку тарифов на основе размера абонентской платы. Найти
@@ -98,7 +95,7 @@ public class MobileTariffs {
         return sb.toString();
     }*/
     public String toString() {
-        return String.format("Тариф: %s\t стоимость: %d\t звонки внутри сети: %d\t звоник на другие номера: %d \t мнтернет Мб: %d\t Бесплатные SMS: %d\t " +
+        return String.format("Тариф: %s\t стоимость: %d\t звонки внутри сети: %d\t звонки на другие номера: %d \t интернет Мб: %d\t Бесплатные SMS: %d\t " +
                         "Абонентская плата: %d",
                 name, price, callsInNetwork, callsToOtherNetwork, internetMB, freeSMS, price);
     }}
