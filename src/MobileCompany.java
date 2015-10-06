@@ -3,21 +3,30 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Created by Kos on 05.10.2015.
- */
+
 public class MobileCompany {
 
 
+
+    private String companyName;
+    private ArrayList<MobileTariffs> tariffsList = new ArrayList<>();
+    public MobileCompany(String companyName) {
+        this.companyName = companyName;
+    }
+
+
+    public MobileCompany(ArrayList<MobileTariffs> tariffsList) {
+        this.tariffsList = tariffsList;
+    }
 
     public static void main(String[] args) {
 
         MobileCompany company = new MobileCompany("Kyivstar");
 
-        company.addTariffsToTariffList(new MobileTariffs("Contract",250,500,1000,1500,50));
-        company.addTariffsToTariffList(new MobileTariffs("Econom",1000,120,500,750,20));
-        company.addTariffsToTariffList(new MobileTariffs("Super",500,750,2000,2500,1000));
-        company.addTariffsToTariffList(new MobileTariffs("VIP",4000,1000,2500,3000,1400));
+        company.addTariffsToTariffList(new MobileTariffs("Contract", 250, 500, 1000, 1500, 50));
+        company.addTariffsToTariffList(new MobileTariffs("Econom", 1000, 120, 500, 750, 20));
+        company.addTariffsToTariffList(new MobileTariffs("Super", 500, 750, 2000, 2500, 1000));
+        company.addTariffsToTariffList(new MobileTariffs("VIP", 4000, 1000, 2500, 3000, 1400));
 
 
         System.out.println("\nДиапазон тарифов: ");
@@ -26,22 +35,11 @@ public class MobileCompany {
             System.out.println(c);
         }
 
-        System.out.println("\nСортировка по размеру абонентской платы: ");
+        System.out.println("\nРазмер абонентской платы: ");
         List<MobileTariffs> SubFee = company.sortTarriffsByFee();
         for (MobileTariffs c : SubFee) {
             System.out.println(c);
         }
-    }
-
-    private String companyName;
-    private ArrayList<MobileTariffs> tariffsList = new ArrayList<>();
-
-
-    public MobileCompany(String companyName) {
-        this.companyName = companyName;
-    }
-    public MobileCompany(ArrayList<MobileTariffs> tariffsList) {
-        this.tariffsList = tariffsList;
     }
 
     public String getCompanyName() {
