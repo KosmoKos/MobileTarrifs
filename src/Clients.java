@@ -1,18 +1,30 @@
 public class Clients {
 
 
-
+    private static int idGenertor = 0;
+    private int id = idGenertor;
     private String name;
     private String surename;
     private String patronymic;
     private int age;
 
+    {
+        idGenertor++;
+    }
 
-    public Clients(String name, String surename, String patronymic, int age) {
+
+    public Clients(int id,
+                   String name,
+                   String surename,
+                   String patronymic,
+                   int age,
+                   int quantity) {
+        this.id = id;
         this.name = name;
         this.surename = surename;
         this.patronymic = patronymic;
         this.age = age;
+
     }
 
     public String getName() {

@@ -10,36 +10,47 @@ public class MobileCompany {
 
     private String companyName;
     private ArrayList<MobileTariffs> tariffsList = new ArrayList<>();
+    private ArrayList<MobileTariffs> totalCustomer = new ArrayList<>();
     public MobileCompany(String companyName) {
         this.companyName = companyName;
     }
 
-
-    public MobileCompany(ArrayList<MobileTariffs> tariffsList) {
+    public MobileCompany(String companyName, ArrayList<MobileTariffs> tariffsList, ArrayList<MobileTariffs> totalCustomer) {
+        this.companyName = companyName;
         this.tariffsList = tariffsList;
+        this.totalCustomer = totalCustomer;
     }
+
 
     public static void main(String[] args) {
 
         MobileCompany company = new MobileCompany("Kyivstar");
 
-        company.addTariffsToTariffList(new MobileTariffs("Contract", 250, 500, 1000, 1500, 50));
-        company.addTariffsToTariffList(new MobileTariffs("Econom", 1000, 120, 500, 750, 20));
-        company.addTariffsToTariffList(new MobileTariffs("Super", 500, 750, 2000, 2500, 1000));
-        company.addTariffsToTariffList(new MobileTariffs("VIP", 4000, 1000, 2500, 3000, 1400));
+        company.addTariffsToTariffList(new MobileTariffs("Contract", 250, 500, 1000, 1500, 50, 24));
+        company.addTariffsToTariffList(new MobileTariffs("Econom", 1000, 120, 500, 750, 20, 65));
+        company.addTariffsToTariffList(new MobileTariffs("Super", 500, 750, 2000, 2500, 1000, 65));
+        company.addTariffsToTariffList(new MobileTariffs("VIP tariff", 4000, 1000, 2500, 3000, 1400, 48));
 
 
         System.out.println("\nДиапазон тарифов: ");
-        List<MobileTariffs> diapasonTariffs = company.sortTariffsByPrice(250, 4000);
+        List<MobileTariffs> diapasonTariffs = company.sortTariffsByPrice(1, 4000);
         for (MobileTariffs c : diapasonTariffs) {
             System.out.println(c);
         }
 
-        System.out.println("\nРазмер абонентской платы: ");
+        System.out.println("\nСортировка по абонентской плате: ");
         List<MobileTariffs> SubFee = company.sortTarriffsByFee();
         for (MobileTariffs c : SubFee) {
             System.out.println(c);
         }
+
+
+        System.out.println("\nОбщее количество клиентов: ");
+        List<MobileTariffs> custom = company.totalCustomer();
+        for (MobileTariffs c : custom) {
+            System.out.println(c);
+        }
+
     }
 
     public String getCompanyName() {
@@ -62,6 +73,16 @@ public class MobileCompany {
         tariffsList.add(tariff);
     }
 
+    public ArrayList<MobileTariffs> getTotalCustomer() {
+        return totalCustomer;
+    }
+
+    public void setTotalCustomer(ArrayList<MobileTariffs> totalCustomer) {
+        this.totalCustomer = totalCustomer;
+    }
+
+
+
     List<MobileTariffs> sortTariffsByPrice(int diapasonStart, int diapasonEnd) {
         List<MobileTariffs> list = new ArrayList<>();
         for (MobileTariffs c : tariffsList) {
@@ -70,6 +91,21 @@ public class MobileCompany {
             }
         }
         return list;
+    }
+
+    List<MobileTariffs> totalCustomer() {
+        List<MobileTariffs> list = new ArrayList<>();
+        int sum = 0;
+        for (MobileTariffs c : tariffsList) {
+            list.add(c);
+            sum += c.getQuantity();
+        }
+        System.out.print("");
+        System.out.println(sum + " клиента.");
+        System.out.print("");
+
+        return list;
+
     }
 
     public List<MobileTariffs> sortTarriffsByFee() {

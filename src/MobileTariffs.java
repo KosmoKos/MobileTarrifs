@@ -11,15 +11,25 @@ public class MobileTariffs {
     private int callsToOtherNetwork;
     private int internetMB;
     private int freeSMS;
+    private int quantity;
 
 
-    public MobileTariffs(String name, int price, int callsInNetwork, int callsToOtherNetwork, int internetMB, int freeSMS) {
+    public MobileTariffs(String name,
+                         int price,
+                         int callsInNetwork,
+                         int callsToOtherNetwork,
+                         int internetMB,
+                         int freeSMS,
+                         int quantity) {
+
+        super();
         this.name = name;
         this.price = price;
         this.callsInNetwork = callsInNetwork;
         this.callsToOtherNetwork = callsToOtherNetwork;
         this.internetMB = internetMB;
         this.freeSMS = freeSMS;
+        this.quantity = quantity;
 
     }
 
@@ -65,6 +75,7 @@ public class MobileTariffs {
 
 
 
+
     public int getPrice() {
         return price;
     }
@@ -81,24 +92,40 @@ public class MobileTariffs {
         this.callsInNetwork = collsOnNetwork;
     }
 
-    /*@Override
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder("");
         sb.append("Тариф: '").append(name).append('\'');
-        sb.append(", стоимость: ").append(price).append(" грн.");
-        sb.append(", звонки внутри сети: ").append(callsInNetwork).append(" минут.");
-        sb.append(", звоник на другие номера: ").append(callsToOtherNetwork).append(" минут.");
-        sb.append(", мнтернет: ").append(internetMB).append(" МБ.");
-        sb.append(", Бесплатные SMS: ").append(freeSMS).append(" шт.");
-        sb.append(", Абонентская плата: ").append(subscriptionFee).append(" грн.");
-        sb.append("");
+        sb.append(", Стоимость тарифа: ").append(price);
+        sb.append(", Звонки внутри сети: ").append(callsInNetwork);
+        sb.append(", Звонки на на другие номера: ").append(callsToOtherNetwork);
+        sb.append(", Internet (МБ в пакете): ").append(internetMB);
+        sb.append(", Бесплатных СМС: ").append(freeSMS);
+        sb.append(", Подключенных клентов: ").append(quantity);
+        sb.append(' ');
         return sb.toString();
-    }*/
-    public String toString() {
-        return String.format("Тариф: %s\t стоимость: %d\t звонки внутри сети: %d\t звонки на другие номера: %d \t интернет Мб: %d\t Бесплатные SMS: %d\t " +
-                        "Абонентская плата: %d",
-                name, price, callsInNetwork, callsToOtherNetwork, internetMB, freeSMS, price);
-    }}
+    }
+
+    /*public String toString() {
+        return String.format(
+                        "Тариф: %s\t " +
+                        "стоимость: %d\t " +
+                        "звонки внутри сети: %d\t " +
+                        "другие номера: %d \t " +
+                        "Internet Мб: %d\t " +
+                        "Бесплатные SMS: %d\t " +
+                        "Абонентская плата: %d\t " +
+                        "Количество клиентов: %d",
+                name, price, callsInNetwork, callsToOtherNetwork, internetMB, freeSMS, price, quantity);*/
+}
 
 
 
