@@ -11,8 +11,6 @@ public class Tarif_Contract extends Tariff {
 
     public Tarif_Contract(String name) {
         super();
-
-
         this.name = name;
         this.price = price;
     }

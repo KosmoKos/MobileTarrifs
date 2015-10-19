@@ -6,13 +6,6 @@ package Progect.Tarif;
 public class Tariff {
 
 
-    public Tariff(String contract, int i, int i1, int i2, int i3, int i4, int i5) {
-
-    }
-
-    public Tariff() {
-
-    }
 
     public int getPrice() {
         return 0;
