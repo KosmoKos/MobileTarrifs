@@ -1,9 +1,11 @@
+package Progect.Tarif;
+
 /*12. Мобильная связь. Определить иерархию тарифов мобильной компании.
 Создать список тарифов компании. Подсчитать общую численность клиентов.
 Провести сортировку тарифов на основе размера абонентской платы. Найти
 тариф в компании, соответствующий заданному диапазону параметров.*/
 
-public class MobileTariffs {
+public class MobileTariff {
 
     private  String name;
     private int price;
@@ -14,15 +16,17 @@ public class MobileTariffs {
     private int quantity;
 
 
-    public MobileTariffs(String name,
-                         int price,
-                         int callsInNetwork,
-                         int callsToOtherNetwork,
-                         int internetMB,
-                         int freeSMS,
-                         int quantity) {
-
+    public MobileTariff(
+            String name,
+            int price,
+            int callsInNetwork,
+            int callsToOtherNetwork,
+            int internetMB,
+            int freeSMS,
+            int quantity) {
         super();
+
+
         this.name = name;
         this.price = price;
         this.callsInNetwork = callsInNetwork;
@@ -32,6 +36,7 @@ public class MobileTariffs {
         this.quantity = quantity;
 
     }
+
 
     public String getName() {
         return name;
@@ -72,8 +77,6 @@ public class MobileTariffs {
     public void setFreeSMS(int freeSMS) {
         this.freeSMS = freeSMS;
     }
-
-
 
 
     public int getPrice() {
