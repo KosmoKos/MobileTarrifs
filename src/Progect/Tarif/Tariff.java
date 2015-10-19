@@ -11,7 +11,7 @@ public class Tariff {
     }
 
     public Tariff() {
-        
+
     }
 
     public int getPrice() {
